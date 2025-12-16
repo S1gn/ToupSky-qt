@@ -1,4 +1,5 @@
-import sys, toupcam
+import sys
+from core import toupcam
 from PyQt6.QtCore import pyqtSignal, pyqtSlot, QTimer, QSignalBlocker, Qt
 from PyQt6.QtGui import QPixmap, QImage
 from PyQt6.QtWidgets import QLabel, QApplication, QWidget, QCheckBox, QMessageBox, QMainWindow, QPushButton, QComboBox, QSlider, QGroupBox, QGridLayout, QBoxLayout, QHBoxLayout, QVBoxLayout, QMenu
@@ -58,7 +59,7 @@ class MainWidget(QWidget):
         self.slider_expoGain.valueChanged.connect(self.onExpoGain)
         vlytexp = QVBoxLayout()
         vlytexp.addWidget(self.cbox_auto)
-        vlytexp.addLayout(self.makeLayout(QLabel("Time(us):"), self.slider_expoTime, self.lbl_expoTime, QLabel("Gain(%):"), self.slider_expoGain, self.lbl_expoGain))
+        vlytexp.addLayout(self.makeLayout(QLabel("Time(ms):"), self.slider_expoTime, self.lbl_expoTime, QLabel("Gain(%):"), self.slider_expoGain, self.lbl_expoGain))
         gboxexp.setLayout(vlytexp)
 
         gboxwb = QGroupBox("White balance")
